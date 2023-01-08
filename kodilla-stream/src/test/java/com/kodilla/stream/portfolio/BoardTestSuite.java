@@ -3,7 +3,7 @@ package com.kodilla.stream.portfolio;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -156,24 +156,29 @@ class BoardTestSuite {
 
         //Given
         Board project = prepareTestData();
-        long completionTime;
-
 
         //When
         List<TaskList> inProgress = new ArrayList<>();
         inProgress.add(new TaskList("In progress"));
 
-        completionTime = project.getTaskLists().stream()
+        long completionTime = project.getTaskLists().stream()
                 .filter(inProgress::contains)
                 .flatMap(tl->tl.getTasks().stream())
-                .map(d->Period.between(d.getCreated(),LocalDate.now()))
-                .map(Period::getDays).mapToInt(Integer::intValue).sum();
+                .map(d-> ChronoUnit.DAYS.between(d.getCreated(), LocalDate.now()))
+                .mapToInt(l->l.intValue()).sum();
 
         long tasksSize=project.getTaskLists().stream()
                         .filter(inProgress::contains)
                                 .flatMap(tl->tl.getTasks().stream()).map(tl->tl.getTitle())
                                         .count();
         long average = completionTime/tasksSize;
+
+/*
+        //When
+
+        Board board = new Board("abc");
+        long avarageFromBoeadClass = board.averageTime(project);
+*/
 
         //Then
         assertEquals(10,average);

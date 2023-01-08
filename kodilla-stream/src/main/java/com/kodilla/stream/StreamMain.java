@@ -1,8 +1,10 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.person.People;
 import com.kodilla.stream.world.Continent;
 import com.kodilla.stream.world.Country;
 import com.kodilla.stream.world.World;
@@ -47,6 +49,20 @@ public class StreamMain {
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
+
+        System.out.println();
+
+        People.getList().stream()
+                .filter(s->s.length()>11)
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
+
+        System.out.println();
+
+        BookDirectory theBookDirectory = new BookDirectory();
+        theBookDirectory.getList().stream()
+                .filter(s -> s.getYearOfPublication() > 2005)
+                .forEach(System.out::println);
 
 
     }

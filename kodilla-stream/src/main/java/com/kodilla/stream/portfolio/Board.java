@@ -1,5 +1,8 @@
 package com.kodilla.stream.portfolio;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +39,7 @@ public class Board {
                 '}';
     }
 
- /*   public long averageTime(Board project ){
+    public long averageTime(Board project ){
 
         List<TaskList> inProgress = new ArrayList<>();
 
@@ -44,7 +47,14 @@ public class Board {
                 .filter(inProgress::contains)
                 .flatMap(tl->tl.getTasks().stream())
                 .map(d-> ChronoUnit.DAYS.between(d.getCreated(), LocalDate.now()))
+                .mapToInt(l->l.intValue()).sum();
+
+        long completionTimeOld = project.getTaskLists().stream()
+                .filter(inProgress::contains)
+                .flatMap(tl->tl.getTasks().stream())
+                .map(d-> Period.between(d.getCreated(),LocalDate.now()))
                 .map(d->d.getDays()).mapToInt(Integer::intValue).sum();
+
 
         long tasksSize=project.getTaskLists().stream()
                 .filter(inProgress::contains)
@@ -54,7 +64,7 @@ public class Board {
 
         return average;
     }
-*/
+
 
 
 }
