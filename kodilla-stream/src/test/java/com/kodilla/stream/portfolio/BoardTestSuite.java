@@ -166,16 +166,16 @@ class BoardTestSuite {
         completionTime = project.getTaskLists().stream()
                 .filter(inProgress::contains)
                 .flatMap(tl->tl.getTasks().stream())
-                        .map(d->Period.between(d.getCreated(),LocalDate.now()))
-                                .map(d->d.getDays()).mapToInt(Integer::intValue).sum();
+                .map(d->Period.between(d.getCreated(),LocalDate.now()))
+                .map(Period::getDays).mapToInt(Integer::intValue).sum();
 
         long tasksSize=project.getTaskLists().stream()
                         .filter(inProgress::contains)
                                 .flatMap(tl->tl.getTasks().stream()).map(tl->tl.getTitle())
                                         .count();
-        long avrege = completionTime/tasksSize;
+        long average = completionTime/tasksSize;
 
         //Then
-        assertEquals(10,avrege);
+        assertEquals(10,average);
     }
 }

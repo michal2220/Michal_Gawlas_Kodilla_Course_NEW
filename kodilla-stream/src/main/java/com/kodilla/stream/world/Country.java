@@ -2,7 +2,7 @@ package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
 
-public final class Country {
+public class Country {
 
     private final BigDecimal peopleCount;
     private final String countryName;

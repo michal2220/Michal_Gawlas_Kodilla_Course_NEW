@@ -3,7 +3,7 @@ package com.kodilla.stream.world;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class Continent {
+public class Continent {
 
     private final String continentName;
     private final Set<Country> countrySet = new HashSet<>();
