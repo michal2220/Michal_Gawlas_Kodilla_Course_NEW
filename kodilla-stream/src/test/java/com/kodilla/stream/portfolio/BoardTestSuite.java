@@ -168,9 +168,9 @@ class BoardTestSuite {
                 .mapToInt(l->l.intValue()).sum();
 
         long tasksSize=project.getTaskLists().stream()
-                        .filter(inProgress::contains)
-                                .flatMap(tl->tl.getTasks().stream()).map(tl->tl.getTitle())
-                                        .count();
+                .filter(inProgress::contains)
+                .flatMap(tl->tl.getTasks().stream()).map(tl->tl.getTitle())
+                .count();
         long average = completionTime/tasksSize;
 
 /*

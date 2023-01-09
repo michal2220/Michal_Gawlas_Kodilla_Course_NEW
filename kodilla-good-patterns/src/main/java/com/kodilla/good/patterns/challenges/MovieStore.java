@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MovieStore {
+
+    String listInOneLine;
 
     public Map<String, List<String>> getMovies() {
         List<String> ironManTranslations = new ArrayList<>();
@@ -27,5 +30,17 @@ public class MovieStore {
 
         return booksTitlesWithTranslations;
     }
+
+
+    public String createListInString(){
+
+        listInOneLine = getMovies().entrySet().stream()
+                .flatMap(list -> getMovies().values().stream())
+                .map(List::toString)
+                .collect(Collectors.joining("!"));
+
+        return listInOneLine;
+    }
+
 
 }
