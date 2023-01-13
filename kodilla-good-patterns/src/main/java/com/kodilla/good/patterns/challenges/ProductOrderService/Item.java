@@ -2,8 +2,8 @@ package com.kodilla.good.patterns.challenges.ProductOrderService;
 
 public class Item {
 
-    String itemName;
-    int price;
+    private String itemName;
+    private int price;
 
     public Item(String itemName, int price) {
         this.itemName = itemName;
