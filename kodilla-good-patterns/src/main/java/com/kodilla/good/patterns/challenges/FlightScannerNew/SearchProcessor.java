@@ -38,9 +38,9 @@ public class SearchProcessor {
         System.out.println();
     }
 
-    public void searchFromTo (FlightRequestDouble flightRequestDouble, FlightRequestReceiver flightRequestReceiver) {
+    public void searchFromTo (FlightRequestDouble flightRequestDouble) {
 
-        FlightMapVia FlightMapVia = new FlightMapVia(flightRequestDouble, flightRequestReceiver);
+        FlightMapVia FlightMapVia = new FlightMapVia(flightRequestDouble);
         List<AirportService> objectList = FlightMapVia.createObjectList();
 
         System.out.println("Flights from " + flightRequestDouble.getAirportServiceFrom().getName() +

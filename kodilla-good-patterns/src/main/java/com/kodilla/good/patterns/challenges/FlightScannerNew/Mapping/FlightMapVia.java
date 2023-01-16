@@ -12,7 +12,7 @@ public class FlightMapVia {
     private FlightRequestDouble flightRequestDouble;
     private FlightRequestReceiver flightRequestReceiver;
 
-    public FlightMapVia(FlightRequestDouble flightRequestDouble, FlightRequestReceiver flightRequestReceiver) {
+    public FlightMapVia(FlightRequestDouble flightRequestDouble) {
         this.flightRequestDouble = flightRequestDouble;
         this.flightRequestReceiver = flightRequestReceiver;
     }

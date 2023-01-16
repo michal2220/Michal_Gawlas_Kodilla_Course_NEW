@@ -11,7 +11,7 @@ public class MainForFlightScanner {
 
         searchProcessor.searchFrom(flightRequest);
         searchProcessor.searchTo(flightRequest);
-        searchProcessor.searchFromTo(flightRequestDouble, flightRequestReceiver);
+        searchProcessor.searchFromTo(flightRequestDouble);
 
     }
 
