@@ -2,8 +2,6 @@ package com.kodilla.good.patterns.challenges.FlightScannerNew;
 
 import com.kodilla.good.patterns.challenges.FlightScannerNew.Airports.AirportService;
 
-import java.util.Objects;
-
 public class FlightRequest {
 
     private AirportService airportService;
@@ -17,18 +15,4 @@ public class FlightRequest {
         return airportService;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        FlightRequest that = (FlightRequest) o;
-
-        return Objects.equals(airportService, that.airportService);
-    }
-
-    @Override
-    public int hashCode() {
-        return airportService != null ? airportService.hashCode() : 0;
-    }
 }

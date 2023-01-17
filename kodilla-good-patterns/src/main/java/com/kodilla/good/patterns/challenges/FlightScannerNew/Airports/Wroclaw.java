@@ -13,7 +13,7 @@ public class Wroclaw implements AirportService {
     public List<String> getArrivalFlights() {
 
         arrivalFlights.add("Warszawa");
-        arrivalFlights.add("Krakow");
+        arrivalFlights.add("Gdansk");
 
         return arrivalFlights;
     }
@@ -21,6 +21,7 @@ public class Wroclaw implements AirportService {
     public List<String> getDestinationFlights() {
 
         destinationFlights.add("Warszawa");
+        destinationFlights.add("Bydgoszcz");
 
         return destinationFlights;
     }
