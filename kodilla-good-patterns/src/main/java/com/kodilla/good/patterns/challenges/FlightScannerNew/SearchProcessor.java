@@ -6,31 +6,33 @@ import java.util.stream.Collectors;
 
 public class SearchProcessor {
 
-    public void searchFrom(String airport) {
+    public List searchFrom(String airport) {
         FlightMap flightMap = new FlightMap();
         Map<String, List> airportMap = flightMap.getAirportServices();
 
         System.out.println();
         System.out.println("Flights from " + airport + " to: ");
-        airportMap.entrySet().stream()
+        List result = airportMap.entrySet().stream()
                 .filter(f -> f.getKey().contains(airport))
-                .flatMap(f -> f.getValue().stream())
-                .forEach(System.out::println);
+                .flatMap(f -> f.getValue().stream()).map(f->f.toString()).toList();
+
+        return result;
     }
 
-    public void searchTo(String airport) {
+    public List searchTo(String airport) {
         FlightMap flightMap = new FlightMap();
         Map<String, List> airportMap = flightMap.getAirportServices();
 
         System.out.println();
         System.out.println("Flights to " + airport + " from: ");
-        airportMap.entrySet().stream()
+        List result = airportMap.entrySet().stream()
                 .filter(f -> f.getValue().contains(airport))
-                .map(f -> f.getKey())
-                .forEach(System.out::println);
+                .map(f -> f.getKey()).map(f->f.toString()).toList();
+
+        return result;
     }
 
-    public void searchVia(String airportFrom, String airportTo) {
+    public List searchVia(String airportFrom, String airportTo) {
         FlightMap flightMap = new FlightMap();
         Map<String, List> airportMap = flightMap.getAirportServices();
 
@@ -49,7 +51,8 @@ public class SearchProcessor {
                 .collect(Collectors.toList());
 
         firstList.retainAll(secondList);
-        firstList.stream().forEach(System.out::println);
+
+        return firstList;
     }
     /*
 
