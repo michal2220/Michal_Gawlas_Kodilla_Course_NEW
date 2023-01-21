@@ -15,7 +15,6 @@ public class CalculatorTestSuite {
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
         Calculator calculator= context.getBean(Calculator.class);
 
-
         //When
         calculator.add(1,2);
         calculator.sub(8,4);

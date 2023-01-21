@@ -32,6 +32,4 @@ public class Calculator {
         display.displayValue(val);
         return val;
     }
-
-
 }
