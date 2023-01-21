@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class SearchProcessor {
 
-    public List searchFrom(String airport) {
+    public List <String> searchFrom(String airport) {
         FlightMap flightMap = new FlightMap();
         Map<String, List> airportMap = flightMap.getAirportServices();
 
@@ -19,7 +19,7 @@ public class SearchProcessor {
         return result;
     }
 
-    public List searchTo(String airport) {
+    public List <String> searchTo(String airport) {
         FlightMap flightMap = new FlightMap();
         Map<String, List> airportMap = flightMap.getAirportServices();
 
@@ -32,7 +32,7 @@ public class SearchProcessor {
         return result;
     }
 
-    public List searchVia(String airportFrom, String airportTo) {
+    public List <String> searchVia(String airportFrom, String airportTo) {
         FlightMap flightMap = new FlightMap();
         Map<String, List> airportMap = flightMap.getAirportServices();
 

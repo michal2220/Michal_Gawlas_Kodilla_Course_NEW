@@ -7,17 +7,17 @@ public class MainForFlightScanner {
     public static void main(String[] args) {
 
         SearchProcessor searchProcessor = new SearchProcessor();
-        List fromCity = searchProcessor.searchFrom("Krakow");
+        List <String> fromCity = searchProcessor.searchFrom("Krakow");
         for (Object theList : fromCity){
             System.out.println(theList);
         }
 
-        List toCity = searchProcessor.searchTo("Wroclaw");
+        List <String> toCity = searchProcessor.searchTo("Wroclaw");
         for (Object theList : toCity){
             System.out.println(theList);
         }
 
-        List viaCity =searchProcessor.searchVia("Warszawa","Madryt");
+        List <String> viaCity =searchProcessor.searchVia("Warszawa","Madryt");
         for (Object theList : viaCity){
             System.out.println(theList);
         }
