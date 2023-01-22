@@ -6,26 +6,23 @@ import java.util.List;
 
 public class TaskList {
 
-    private final List<String> tasks;
+    private final List<Task> tasks;
 
     public TaskList() {
         this.tasks = new ArrayList<>();
     }
 
-    public void addTask(){
-        tasks.add("Nowe zadania");
-    }
-
-    public void addTask2(){
-        tasks.add("Inne zadania");
-    }
-
-    public List<String> getTasks() {
+    public void addTask(Task task){
+        tasks.add(task);
+    };
+    public List<Task> getTasks() {
         return tasks;
     }
 
     @Override
     public String toString() {
-        return "" + tasks.toString();
+        return "TaskList{" +
+                "tasks=" + tasks +
+                '}';
     }
 }

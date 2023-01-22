@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,33 +21,29 @@ public class BoardTestSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
+        List<String> testListDoneList = new ArrayList<>();
+        testListDoneList.add("Umyć auto");
+        testListDoneList.add("Zrobić zakupy");
+        List<String> testListInProgressList = new ArrayList<>();
+        testListInProgressList.add("Nadrobić zaległośći");
+        List<String> testListToDoList = new ArrayList<>();
+        testListToDoList.add("Ogarnąć programowanie");
+
 
         //When
-        board.getDoneList().addTask();
-        board.getDoneList().addTask();
+        board.getDoneList().addTask(new Task("Umyć auto"));
+        board.getDoneList().addTask(new Task("Zrobić zakupy"));
         board.printDoneList();
 
-        board.getInProgressList().addTask2();
+        board.getInProgressList().addTask(new Task("Nadrobić zaległośći"));
         board.printInProgressList();
 
-        board.getToDoList().addTask();
-        board.getToDoList().addTask2();
+        board.getToDoList().addTask(new Task("Ogarnąć programowanie"));
         board.printToDoList();
 
         //Then
-        List<String> testListDoneList = new ArrayList<>();
-        testListDoneList.add("Nowe zadania");
-        testListDoneList.add("Nowe zadania");
-
-        List<String> testListInProgressList = new ArrayList<>();
-        testListInProgressList.add("Inne zadania");
-
-        List<String> testListToDoList = new ArrayList<>();
-        testListToDoList.add("Nowe zadania");
-        testListToDoList.add("Inne zadania");
-
-        assertEquals(testListDoneList,board.getDoneList().getTasks());
-        assertEquals(testListInProgressList,board.getInProgressList().getTasks());
-        assertEquals(testListToDoList,board.getToDoList().getTasks());
+        assertEquals(testListDoneList,board.getDoneList().getTasks().stream().map(f->f.getTask()).collect(Collectors.toList()));
+        assertEquals(testListInProgressList,board.getInProgressList().getTasks().stream().map(f->f.getTask()).collect(Collectors.toList()));
+        assertEquals(testListToDoList,board.getToDoList().getTasks().stream().map(f->f.getTask()).collect(Collectors.toList()));
     }
 }
