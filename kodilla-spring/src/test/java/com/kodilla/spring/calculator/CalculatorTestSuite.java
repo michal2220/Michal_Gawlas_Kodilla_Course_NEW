@@ -23,9 +23,9 @@ public class CalculatorTestSuite {
         double dividing = calculator.div(20,5);
 
         //Then
-        assertEquals(summing, 3);
-        assertEquals(subtracting, 4);
-        assertEquals(multiplying, 16);
-        assertEquals(dividing, 4);
+        assertEquals( 3,summing);
+        assertEquals(4, subtracting);
+        assertEquals(16, multiplying);
+        assertEquals(4, dividing);
     }
 }
