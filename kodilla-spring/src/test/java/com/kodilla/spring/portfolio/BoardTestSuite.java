@@ -25,7 +25,7 @@ public class BoardTestSuite {
         testListDoneList.add("Umyć auto");
         testListDoneList.add("Zrobić zakupy");
         List<String> testListInProgressList = new ArrayList<>();
-        testListInProgressList.add("Nadrobić zaległośći");
+        testListInProgressList.add("Nadrobić zaległości");
         List<String> testListToDoList = new ArrayList<>();
         testListToDoList.add("Ogarnąć programowanie");
 
@@ -35,7 +35,7 @@ public class BoardTestSuite {
         board.getDoneList().addTask(new Task("Zrobić zakupy"));
         board.printDoneList();
 
-        board.getInProgressList().addTask(new Task("Nadrobić zaległośći"));
+        board.getInProgressList().addTask(new Task("Nadrobić zaległości"));
         board.printInProgressList();
 
         board.getToDoList().addTask(new Task("Ogarnąć programowanie"));
