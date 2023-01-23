@@ -1,5 +1,7 @@
 package com.kodilla.spring.portfolio;
 
+import java.util.Objects;
+
 public class Task {
 
     private String task;
@@ -17,5 +19,20 @@ public class Task {
         return "Task{" +
                 "task='" + task + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Task task1 = (Task) o;
+
+        return Objects.equals(task, task1.task);
+    }
+
+    @Override
+    public int hashCode() {
+        return task != null ? task.hashCode() : 0;
     }
 }

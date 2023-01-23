@@ -7,7 +7,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -21,14 +20,13 @@ public class BoardTestSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        List<String> testListDoneList = new ArrayList<>();
-        testListDoneList.add("Umyć auto");
-        testListDoneList.add("Zrobić zakupy");
-        List<String> testListInProgressList = new ArrayList<>();
-        testListInProgressList.add("Nadrobić zaległości");
-        List<String> testListToDoList = new ArrayList<>();
-        testListToDoList.add("Ogarnąć programowanie");
-
+        List<Task> testListDoneList = new ArrayList<>();
+        testListDoneList.add(new Task("Umyć auto"));
+        testListDoneList.add(new Task("Zrobić zakupy"));
+        List<Task> testListInProgressList = new ArrayList<>();
+        testListInProgressList.add(new Task("Nadrobić zaległości"));
+        List<Task> testListToDoList = new ArrayList<>();
+        testListToDoList.add(new Task("Ogarnąć programowanie"));
 
         //When
         board.getDoneList().addTask(new Task("Umyć auto"));
@@ -42,8 +40,8 @@ public class BoardTestSuite {
         board.printToDoList();
 
         //Then
-        assertEquals(testListDoneList,board.getDoneList().getTasks().stream().map(f->f.getTask()).collect(Collectors.toList()));
-        assertEquals(testListInProgressList,board.getInProgressList().getTasks().stream().map(f->f.getTask()).collect(Collectors.toList()));
-        assertEquals(testListToDoList,board.getToDoList().getTasks().stream().map(f->f.getTask()).collect(Collectors.toList()));
+        assertEquals(testListDoneList,board.getDoneList().getTasks());
+        assertEquals(testListInProgressList,board.getInProgressList().getTasks());
+        assertEquals(testListToDoList,board.getToDoList().getTasks());
     }
 }
