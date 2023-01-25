@@ -20,4 +20,5 @@ public sealed class User permits Millenials, YGeneration, ZGeneration {
     public void setSocialPublisher(SocialPublisher socialPublisher) {
         this.socialPublisher = socialPublisher;
     }
+
 }
