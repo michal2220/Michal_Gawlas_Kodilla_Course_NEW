@@ -2,9 +2,9 @@ package com.kodilla.patterns.factory.tasks;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TaskFactoryTestSuite {
+public class  TaskFactoryTestSuite {
 
     @Test
     public void testingPainting(){
@@ -18,7 +18,7 @@ public class TaskFactoryTestSuite {
         System.out.println("Is task executed :" + painting.isTaskExecuted());
 
         //Then
-        assertTrue(painting.isTaskExecuted());
+        assertEquals("Painting", painting.getTaskName());
     }
 
     @Test
@@ -33,7 +33,8 @@ public class TaskFactoryTestSuite {
         System.out.println("Is task executed :" + driving.isTaskExecuted());
 
         //Then
-        assertTrue(driving.isTaskExecuted());
+        assertEquals("Driving", driving.getTaskName());
+
     }
 
     @Test
@@ -48,6 +49,7 @@ public class TaskFactoryTestSuite {
         System.out.println("Is task executed :" + shopping.isTaskExecuted());
 
         //Then
-        assertTrue(shopping.isTaskExecuted());
+        assertEquals("Shopping", shopping.getTaskName());
+
     }
 }
