@@ -1,0 +1,58 @@
+CREATE TABLE ISSUESLISTS
+(
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(1024)
+);
+
+CREATE TABLE ISSUES
+(
+    ID SERIAL PRIMARY KEY,
+    ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+    FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS(ID),
+    SUMMARY VARCHAR(1024),
+    DESCRIPTION VARCHAR(1024),
+    USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+
+INSERT INTO ISSUESLISTS (NAME)
+VALUES ("ToDo");
+INSERT INTO ISSUESLISTS (NAME)
+VALUES ("In progress");
+INSERT INTO ISSUESLISTS (NAME)
+VALUES ("Done");
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Clean house", "Need to vacume and clean floors.", 1);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Check tire pressure", "Take car to station and check pressure via pump.", 4);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Do groceries", "Buy cucumber, tomatoes and chicken breast.", 4);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Make bed", "Put pillows and cover so it looks nicely and improves focus.", 2);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Assembly furniture", "Put together furnitures bought in Ikea.", 3);
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Learn programming", "Complete tasks and learn daily.", 5);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Work out", "By taking small steps return to better shape.", 4);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Change diet", "Abbandon wrong food habbits and return to better diet overall.", 1);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Complete dinner", "Boil pasta and make pasta sauce.", 1);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Buy new headphones", "Find and buy new headphones with good price to quality ratio.", 3);
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Buy new furniture", "Go to Ikea and buy new furniture to bedroom.", 3);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Buy lamp", "Buy new desk lamp with adjustable brightness.", 3);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Visit grandma", "Go to grandma's birthday party.", 1);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Clean car", "Clean seats and dashboard drom dust and mud.", 5);
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Cut wood", "Cut wood in backyard to prepare for winter.", 4);
+
+COMMIT;
