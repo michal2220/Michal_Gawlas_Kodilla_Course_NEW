@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class calculatingStatisticsTestSuite {
+public class CalculatingStatisticsTestSuite {
 
     Statistics statisticsMock = mock(Statistics.class);
     Calculations calculations = new Calculations(statisticsMock);
