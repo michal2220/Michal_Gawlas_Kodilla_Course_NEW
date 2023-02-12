@@ -17,14 +17,30 @@ public class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
 
+    @Autowired
+    private ProductDao productDao;
+
+    @Autowired
+    private ItemDao itemDao;
+
     @Test
     void testInvoiceDaoSave() {
         //Given
         Item item = new Item(new BigDecimal(10), 2);
         Item item2 = new Item(new BigDecimal(8), 5);
 
-
+        //Product product = new Product("product");
         Invoice invoice = new Invoice("AD/23");
+
+/*        product.getItems().add(item);
+        item.setProduct(product);*/
+
+
+/*        productDao.save(product);
+        itemDao.save(item);
+        itemDao.save(item2);
+        */
+
 
         invoice.getItems().add(item);
         item.setInvoice(invoice);
@@ -34,6 +50,7 @@ public class InvoiceDaoTestSuite {
 
         //When
         invoiceDao.save(invoice);
+
         int id = invoice.getId();
 
         int qty = invoice.getItems().size();
