@@ -109,10 +109,10 @@ class TaskDaoTestSuite {
         task3.setTaskList(taskList);
         task4.setTaskList(taskList);
 
-        int id = taskList.getId();
+        int id = 0;
         try {
             taskListDao.save(taskList);
-
+            id = taskList.getId();
             //When
             List<Task> longTasks = taskDao.retrieveLongTasks();
             List<Task> shortTasks = taskDao.retrieveShortTasks();

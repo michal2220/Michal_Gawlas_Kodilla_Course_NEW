@@ -6,10 +6,11 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveEmployeeWithGivenName",
-        query = "from Employee where lastname = :LASTNAME"
-)
+
+        @NamedQuery(
+                name = "Employee.retrieveEmployeeByFragment",
+                query = "from Employee where lastname = :LASTNAME"
+        )
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

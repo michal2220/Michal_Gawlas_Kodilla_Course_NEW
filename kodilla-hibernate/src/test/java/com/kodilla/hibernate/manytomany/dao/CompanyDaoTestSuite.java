@@ -8,7 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
 class CompanyDaoTestSuite {
@@ -96,7 +97,7 @@ class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
-        List<Employee> employees = employeeDao.retrieveEmployeeWithGivenName("Smith");
+        List<Employee> employees = employeeDao.retrieveEmployeeByFragment("Smith");
         int employeeWithName = employees.size();
 
         List<Company> company = companyDao.retrieveCompanyStartingWithLetters("Gre");
