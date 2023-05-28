@@ -47,6 +47,14 @@ class LookerFacadeTest {
         lindaKovalsky.getCompanies().add(greyMatter);
 
         //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
+
         List<Employee> employees = lookerFacade.retrieveEmployeeByFragment("Smith");
         int employeeWithName = employees.size();
         List<Company> company = lookerFacade.retrieveCompanyStartingWithLetters("Gre");
